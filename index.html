@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harini I - Interactive Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://source.unsplash.com/random/1920x1080/?nature');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .container {
+            background-color: rgba(40, 40, 40, 0.8);
+        }
+        header {
+            background-color: #ff69b4;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+        }
+        h1, h2 {
+            margin-bottom: 0.5rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode .section {
+            background-color: #2c2c2c;
+            color: #f0f0f0;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .skill {
+            background-color: #f0f0f0;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode .skill {
+            background-color: #3a3a3a;
+            color: #f0f0f0;
+        }
+        .mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .tab-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1rem;
+        }
+        .tab-button {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode .tab-button {
+            background-color: #3a3a3a;
+            color: #f0f0f0;
+        }
+        .tab-button.active {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .tab-buttons {
+                flex-wrap: wrap;
+            }
+            .tab-button {
+                flex: 1 0 40%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Harini I</h1>
+            <p>3rd Year IT Student</p>
+            <button class="mode-toggle" onclick="toggleDarkMode()">🌓</button>
+        </header>
+
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="openTab(event, 'about')">About</button>
+            <button class="tab-button" onclick="openTab(event, 'education')">Education</button>
+            <button class="tab-button" onclick="openTab(event, 'experience')">Experience</button>
+            <button class="tab-button" onclick="openTab(event, 'skills')">Skills</button>
+            <button class="tab-button" onclick="openTab(event, 'contact')">Contact</button>
+        </div>
+
+        <div id="about" class="tab-content section active">
+            <h2>About Me</h2>
+            <p>Seeking a challenging and progressive career using my soft skills and creativity to gain future exposure, strengths and experiences. I'm a passionate IT student with a strong academic background and diverse skill set.</p>
+        </div>
+
+        <div id="education" class="tab-content section">
+            <h2>Education</h2>
+            <ul>
+                <li>B.Tech IT from Velalar College of Engineering and Technology (CGPA: 8.80)</li>
+                <li>HSC from Shri Vidhyabharathi Matric Higher Secondary School (2021) - 83.4%</li>
+                <li>SSLC from Avvai KSR Matric High School (2019) - 88.76%</li>
+            </ul>
+        </div>
+
+        <div id="experience" class="tab-content section">
+            <h2>Experience & Achievements</h2>
+            <ul>
+                <li>Completed an internship on "Python with Data Science" in Coimbatore</li>
+                <li>Participated in one paper presentation</li>
+                <li>Completed a workshop series on "Full Stack Development Using PHP"</li>
+                <li>NPTEL Online certification course - Principle of management (68%)</li>
+                <li>Introduction to Industry 4.0 and Industrial Internet of Things (63%)</li>
+            </ul>
+        </div>
+
+        <div id="skills" class="tab-content section">
+            <h2>Skills</h2>
+            <div class="skills">
+                <span class="skill">C</span>
+                <span class="skill">Java</span>
+                <span class="skill">Python</span>
+                <span class="skill">PHP</span>
+                <span class="skill">Data Science</span>
+                <span class="skill">Full Stack Development</span>
+            </div>
+        </div>
+
+        <div id="contact" class="tab-content section">
+            <h2>Contact</h2>
+            <p>Email: vennilaiyappan95@gmail.com</p>
+            <p>Phone: 9677510581</p>
+            <p>Address: 8/21/2, Pavai Street, Tiruchengode(Tk), Namakkal-637211</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabContent, tabButtons;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+            tabButtons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
